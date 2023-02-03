@@ -139,6 +139,20 @@ Print the routing table
 
 Question:
 
+1.
+
+For the case of adding an edge (u,v)
+
+- then using your already built-distance matrix - do the following:
+
+For every pair of nodes x
+and y check if d((x,u))+c((u,v))+d((v,y))<d((x,y)) - this can be done in O(n2)
+
+since you are comparing every pair of nodes.
+
+For the case of edge deletion: Given the distance matrix already built, then you can have for every node u
+a shortest-path tree rooted at u. If the deleted edge e is not in that tree, then the shortest paths from u to every other is not affected - (they remain the same).
+
 
 2. 
 
@@ -194,3 +208,16 @@ As already mentioned, Link State routing protocols hold 3 distinctive tables: a 
 
  Apply the Dijkstra algorithm to construct the shortest path to all possible destinations
 
+3.
+
+Random early detection (RED), also known as random early discard or random early drop is a queuing discipline for a network scheduler suited for congestion avoidance.
+
+In the conventional tail drop algorithm, a router or other network component buffers as many packets as it can, and simply drops the ones it cannot buffer. If buffers are constantly full, the network is congested. Tail drop distributes buffer space unfairly among traffic flows. Tail drop can also lead to TCP global synchronization as all TCP connections "hold back" simultaneously, and then step forward simultaneously. Networks become under-utilized and flooded—alternately, in waves.
+
+RED addresses these issues by pre-emptively dropping packets before the buffer becomes completely full. It uses predictive models to decide which packets to drop. It was invented in the early 1990s by Sally Floyd and Van Jacobson.
+
+Explicit Congestion Notification (ECN) is an extension to the Internet Protocol and to the Transmission Control Protocol and is defined in RFC 3168 (2001). ECN allows end-to-end notification of network congestion without dropping packets. ECN is an optional feature that may be used between two ECN-enabled endpoints when the underlying network infrastructure also supports it.
+
+Conventionally, TCP/IP networks signal congestion by dropping packets. When ECN is successfully negotiated, an ECN-aware router may set a mark in the IP header instead of dropping a packet in order to signal impending congestion. The receiver of the packet echoes the congestion indication to the sender, which reduces its transmission rate as if it detected a dropped packet. 
+
+Unlike RED, which drops packets and wastes network resources used to forward packets to the point where they experience congestion, ECN, by marking the packets, avoids such resource waste. With ECN, TCP hosts can distinguish between packet loss due to transmission errors and congestion signals. This allows TCP to react more quickly to congestion signals. ECN is also more efficient than RED because it does not require a separate queue for packets that are marked for dropping. 
