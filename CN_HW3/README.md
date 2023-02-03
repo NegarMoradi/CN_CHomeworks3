@@ -103,20 +103,37 @@ In this topology, we use nodes to simulate hosts and routers of the desired netw
 
 ### commands:
 
+The following command adds a list of desired hosts or routers to the methodology at each stage of the simulation.
+
 <image title="addHost" alt="Alt text" src="./pics/addHost.png">
 
+
+The following command adds or updates a link between two nodes of the topology at each stage of the simulation
 <image title="addUpdate" alt="Alt text" src="./pics/addUpdate.png">
 
+
+The following dither is used to remove the link between two nodes
 <image title="remove" alt="Alt text" src="./pics/remove.png">
 
+
+The following command can be used if needed to set a time for a link to be automatically down and up again after a specified period of time.
+Here, sd_ms specifies the start time of down in milliseconds and td_ms indicates the amount of down in milliseconds. After the td_ms time has passed, the link should automatically return to the up state from being down
 <image title="update" alt="Alt text" src="./pics/update.png">
 
+
+With the following command, you can find out the status of each link at any time. If the link is temporarily down, the amount of time remaining and its blackdown should also be displayed
 <image title="log" alt="Alt text" src="./pics/log.png">
 
+
+Start simulation
 <image title="run" alt="Alt text" src="./pics/run.png">
 
+
+Draws the desired network graph
 <image title="draw" alt="Alt text" src="./pics/draw.png">
 
+
+Print the routing table
 <image title="showTable" alt="Alt text" src="./pics/showTable.png">
 
 
